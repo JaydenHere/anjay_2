@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe UI - Retro Neon General Knowledge Mystery Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Chakra+Petch:ital,wght@0,400;0,700;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d0221;
+            color: #00f3ff;
+            font-family: 'Chakra Petch', sans-serif;
+            background-image: 
+                linear-gradient(rgba(255, 0, 127, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 127, 0.08) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .pixel-font {
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        .mono-font {
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        /* Neon Effect Classes */
+        .neon-border-pink {
+            border: 2px solid #ff007f;
+            box-shadow: 0 0 10px #ff007f, inset 0 0 10px #ff007f;
+        }
+
+        .neon-border-cyan {
+            border: 2px solid #00f3ff;
+            box-shadow: 0 0 10px #00f3ff, inset 0 0 5px #00f3ff;
+        }
+
+        .neon-border-yellow {
+            border: 2px solid #ffee00;
+            box-shadow: 0 0 10px #ffee00, inset 0 0 5px #ffee00;
+        }
+
+        .neon-text-pink {
+            color: #ff007f;
+            text-shadow: 0 0 8px #ff007f;
+        }
+
+        .neon-text-cyan {
+            color: #00f3ff;
+            text-shadow: 0 0 8px #00f3ff;
+        }
+
+        .neon-text-yellow {
+            color: #ffee00;
+            text-shadow: 0 0 8px #ffee00;
+        }
+
+        .neon-button-pink {
+            background: rgba(255, 0, 127, 0.15);
+            border: 2px solid #ff007f;
+            color: #ffffff;
+            text-shadow: 0 0 5px #ff007f;
+            box-shadow: 0 0 8px #ff007f;
+            transition: all 0.2s ease;
+        }
+        .neon-button-pink:hover {
+            background: #ff007f;
+            color: #000;
+            box-shadow: 0 0 20px #ff007f;
+        }
+
+        .neon-button-cyan {
+            background: rgba(0, 243, 255, 0.15);
+            border: 2px solid #00f3ff;
+            color: #ffffff;
+            text-shadow: 0 0 5px #00f3ff;
+            box-shadow: 0 0 8px #00f3ff;
+            transition: all 0.2s ease;
+        }
+        .neon-button-cyan:hover {
+            background: #00f3ff;
+            color: #000;
+            box-shadow: 0 0 20px #00f3ff;
+        }
+
+        /* CRT Screen Scanline Overlay Effect */
+        .crt-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+        .crt-overlay::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 20;
+            background-size: 100% 3px, 6px 100%;
+            pointer-events: none;
+        }
+
+        .wireframe-badge {
+            background: rgba(255, 238, 0, 0.15);
+            border: 1px dashed #ffee00;
+            color: #ffee00;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen flex flex-col items-center">
+
+    <!-- HEADER TITLE -->
+    <header class="text-center mb-8 max-w-4xl w-full">
+        <div class="inline-block px-3 py-1 mb-2 bg-pink-900/40 border border-pink-500 rounded text-xs neon-text-pink tracking-widest uppercase">
+            Sistem Konsep Wireframe UI &amp; Spesifikasi Game
+        </div>
+        <h1 class="pixel-font text-2xl md:text-3xl neon-text-pink tracking-wider mb-2">
+            CYBER TRUTH: BOT OR HUMAN?
+        </h1>
+        <p class="text-slate-300 text-sm md:text-base">
+            Game Edukasi Interaktif Pengetahuan Umum Berbalut Misteri AI
+        </p>
+    </header>
+
+    <!-- MAIN WIREFRAME DISPLAY (1 HALAMAN UI WIREFRAME) -->
+    <main class="max-w-5xl w-full bg-slate-950/80 rounded-xl p-4 md:p-6 border-2 border-purple-600 shadow-2xl relative crt-overlay mb-12">
+        
+        <!-- TOP ARCADE MARQUEE / HUD BAR -->
+        <div class="neon-border-pink rounded-lg p-3 mb-6 bg-purple-950/40 flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center gap-4">
+                <div>
+                    <span class="wireframe-badge block mb-1">HUD #1</span>
+                    <span class="pixel-font text-xs text-pink-400">SCORE:</span>
+                    <span class="pixel-font text-sm neon-text-yellow ml-1" id="scoreDisplay">02400</span>
+                </div>
+                <div class="border-l border-purple-800 pl-4">
+                    <span class="wireframe-badge block mb-1">HUD #2</span>
+                    <span class="pixel-font text-xs text-pink-400">STAGE:</span>
+                    <span class="pixel-font text-sm neon-text-cyan ml-1">03/10</span>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <span class="wireframe-badge inline-block mb-1">STATUS MISTERI</span>
+                <div class="text-xs font-mono text-cyan-300 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                    VERIFIKASI ORIGIN AKTIF
+                </div>
+            </div>
+
+            <div>
+                <span class="wireframe-badge block mb-1">TIMER</span>
+                <div class="pixel-font text-xs text-pink-400">TIME: <span class="neon-text-pink text-sm" id="timerDisplay">25s</span></div>
+            </div>
+        </div>
+
+        <!-- GRID UTAMA UI WIREFRAME -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <!-- LEFT & CENTER PANEL: SOAL & PILIHAN JAWABAN -->
+            <div class="lg:col-span-2 space-y-5">
+                
+                <!-- CONTAINER SOAL (EDUKASI GENERAL KNOWLEDGE) -->
+                <div class="neon-border-cyan rounded-lg p-5 bg-slate-900/90 relative">
+                    <div class="flex justify-between items-center mb-3 border-b border-cyan-900/60 pb-2">
+                        <span class="wireframe-badge">BOX SOAL (KATEGORI: SAINS &amp; SEJARAH)</span>
+                        <span class="mono-font text-xs text-cyan-400">ID_SOAL: #GK-8089</span>
+                    </div>
+
+                    <p class="text-lg md:text-xl text-white font-bold leading-relaxed mb-4">
+                        "Planet mana di tata surya kita yang memiliki waktu rotasi paling singkat pada porosnya, sehingga satu harinya hanya berlangsung sekitar 10 jam?"
+                    </p>
+
+                    <div class="text-xs text-cyan-300 bg-cyan-950/40 p-2 rounded border border-cyan-800/50 flex items-center gap-2">
+                        <span>💡</span>
+                        <span>Petunjuk Misteri: Perhatikan penggunaan struktur kalimat dan tanda baca untuk menebak pembuatnya nanti!</span>
+                    </div>
+                </div>
+
+                <!-- PILIHAN JAWABAN GANDA -->
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="wireframe-badge">PANEL OPTION JAWABAN (OPSI MULTIPLE CHOICE)</span>
+                        <span class="text-xs text-slate-400">Pilih 1 Jawaban Benar</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button onclick="selectOption('A')" id="opt-A" class="neon-button-cyan p-3 rounded text-left font-mono text-sm flex items-center gap-3">
+                            <span class="pixel-font text-xs text-pink-400 border border-pink-500 px-2 py-1 bg-black">A</span>
+                            <span>A. Planet Mars</span>
+                        </button>
+                        <button onclick="selectOption('B')" id="opt-B" class="neon-button-cyan p-3 rounded text-left font-mono text-sm flex items-center gap-3">
+                            <span class="pixel-font text-xs text-pink-400 border border-pink-500 px-2 py-1 bg-black">B</span>
+                            <span>B. Planet Jupiter</span>
+                        </button>
+                        <button onclick="selectOption('C')" id="opt-C" class="neon-button-cyan p-3 rounded text-left font-mono text-sm flex items-center gap-3">
+                            <span class="pixel-font text-xs text-pink-400 border border-pink-500 px-2 py-1 bg-black">C</span>
+                            <span>C. Planet Saturnus</span>
+                        </button>
+                        <button onclick="selectOption('D')" id="opt-D" class="neon-button-cyan p-3 rounded text-left font-mono text-sm flex items-center gap-3">
+                            <span class="pixel-font text-xs text-pink-400 border border-pink-500 px-2 py-1 bg-black">D</span>
+                            <span>D. Planet Venus</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT PANEL: TEBAKAN ORIGIN / MISTERI (BOT vs HUMAN) -->
+            <div class="lg:col-span-1 bg-slate-900/90 rounded-lg p-5 neon-border-yellow flex flex-col justify-between">
+                <div>
+                    <div class="mb-3 border-b border-yellow-900/60 pb-2 flex justify-between items-center">
+                        <span class="wireframe-badge">MISTERI ORIGIN</span>
+                        <span class="pixel-font text-[10px] text-yellow-400">STAGE FINAL</span>
+                    </div>
+
+                    <h3 class="pixel-font text-sm text-yellow-400 mb-2 leading-snug">
+                        SIAPA PEMBUAT SOAL INI?
+                    </h3>
+                    <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+                        Analisis gaya bahasa, nada, dan struktur soal di samping. Apakah disusun oleh algoritma AI atau Guru Manusia?
+                    </p>
+
+                    <!-- SELECTION BUTTONS FOR MYSYERY -->
+                    <div class="space-y-3 mb-4">
+                        <button onclick="guessCreator('BOT')" id="btn-bot" class="w-full neon-button-pink p-3 rounded flex items-center justify-center gap-2 group">
+                            <span class="text-xl">🤖</span>
+                            <div class="text-left">
+                                <div class="pixel-font text-xs font-bold">KOMPUTER (BOT)</div>
+                                <div class="text-[10px] text-pink-200">Generatif AI / Algoritma</div>
+                            </div>
+                        </button>
+
+                        <button onclick="guessCreator('HUMAN')" id="btn-human" class="w-full neon-button-cyan p-3 rounded flex items-center justify-center gap-2 group">
+                            <span class="text-xl">👨‍🏫</span>
+                            <div class="text-left">
+                                <div class="pixel-font text-xs font-bold">MANUSIA (GURU)</div>
+                                <div class="text-[10px] text-cyan-200">Pendidik / Pakar Soal</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-black/60 p-3 rounded border border-purple-900 text-center">
+                    <span class="pixel-font text-[9px] text-pink-400 block mb-1">MISTERI BONUS: +500 PTS</span>
+                    <p class="text-[11px] text-slate-400">Tebakan tepat membuka analisis gaya bahasa di babak akhir.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FEEDBACK RESULT OVERLAY / MODAL (SIMULASI POPUP UMPAN BALIK) -->
+        <div id="feedbackModal" class="hidden absolute inset-0 bg-black/90 backdrop-blur-md z-30 flex flex-col items-center justify-center p-6 text-center">
+            <div class="max-w-xl w-full neon-border-pink bg-purple-950/90 rounded-xl p-6 space-y-4">
+                <div class="pixel-font text-lg text-yellow-400 animate-bounce" id="modalTitle">
+                    VERDICT RESULT
+                </div>
+                
+                <div class="py-2 border-y border-purple-800 space-y-2">
+                    <p class="text-sm font-bold text-cyan-300" id="answerFeedbackText">
+                        Jawaban Soal: BENAR! Jupiter adalah planet terbesar dengan rotasi tercepat (9 jam 55 menit).
+                    </p>
+                    <p class="text-sm font-bold text-pink-400" id="mysteryFeedbackText">
+                        Tebakan Origin: TEPAT! Soal ini dibuat oleh GURU MANUSIA (Pak Rahmad, M.Pd).
+                    </p>
+                </div>
+
+                <div class="bg-black/70 p-3 rounded text-left border border-slate-700 text-xs text-slate-300 space-y-1">
+                    <span class="pixel-font text-[10px] text-yellow-400 block mb-1">ANALISIS UMPAN BALIK METAKOGNITIF:</span>
+                    <p>Guru menggunakan frasa konversasional "tata surya kita" dan konteks intuitif yang sering digunakan dalam kurikulum kelas 8. AI cenderung menggunakan struktur baku pasif seperti "Planet dengan rotasi tercepat ditentukan oleh...".</p>
+                </div>
+
+                <button onclick="closeModal()" class="neon-button-yellow px-6 py-2 rounded pixel-font text-xs">
+                    LANJUT KE STAGE NEXT &gt;&gt;
+                </button>
+            </div>
+        </div>
+
+        <!-- FOOTER WIREFRAME LABELS -->
+        <div class="mt-6 pt-4 border-t border-purple-900/60 flex flex-wrap justify-between text-[11px] text-slate-400 mono-font">
+            <div>[ Layout: Retro 80s Arcade Interface ]</div>
+            <div>[ Palette: Neon Pink #FF007F | Cyber Cyan #00F3FF | Synth Yellow #FFEE00 ]</div>
+        </div>
+
+    </main>
+
+    <!-- SECTION: PENJELASAN MEKANISME UMPAN BALIK (1 PARAGRAF UTUH) -->
+    <section class="max-w-5xl w-full bg-slate-950 border border-cyan-500/50 rounded-xl p-6 text-slate-200">
+        <h2 class="pixel-font text-sm text-cyan-400 mb-3 flex items-center gap-2">
+            <span>📝</span> PENJELASAN MEKANISME UMPAN BALIK (FEEDBACK MECHANISM)
+        </h2>
+        <p class="text-sm md:text-base leading-relaxed text-justify text-slate-300 font-sans">
+            Mekanisme umpan balik dalam game ini dirancang secara berjenjang untuk memberikan konfirmasi instan sekaligus pembelajaran metakognitif bagi pemain melalui gabungan audiovisual retro dan edukasi literasi AI. Pertama, saat pemain menyelesaikan pertanyaan pengetahuan umum, sistem langsung memberikan respons visual neon hijau/merah beserta penjelasan singkat fakta akademis untuk menguatkan pemahaman materi secara langsung. Kedua, saat babak tebakan misteri (Bot vs. Manusia) diselesaikan di akhir level, sistem menampilkan *verdict screen* yang mengonfirmasi ketepatan tebakan pemain lengkap dengan **analisis tipologis teks**—seperti membeberkan indikator sintaksis AI yang cenderung baku/repetitif versus gaya penulisan guru manusia yang kaya konteks budaya lokal atau gaya emosional. Penggabungan skor materi dan bonus misteri ini tidak hanya memotivasi pencapaian akademis, tetapi juga secara aktif melatih kemampuan berpikir kritis (*critical thinking*) pemain dalam mengidentifikasi jejak digital buatan kecerdasan buatan dibanding karya manusia.
+        </p>
+    </section>
+
+    <!-- INTERACTIVE DEMO SCRIPT -->
+    <script>
+        let selectedAnswer = null;
+        let selectedCreator = null;
+
+        function selectOption(opt) {
+            ['A', 'B', 'C', 'D'].forEach(o => {
+                const btn = document.getElementById(`opt-${o}`);
+                btn.classList.remove('bg-cyan-400', 'text-black', 'border-yellow-400');
+            });
+            const selectedBtn = document.getElementById(`opt-${opt}`);
+            selectedBtn.classList.add('bg-cyan-400', 'text-black', 'border-yellow-400');
+            selectedAnswer = opt;
+            checkReadyToTrigger();
+        }
+
+        function guessCreator(creator) {
+            selectedCreator = creator;
+            document.getElementById('btn-bot').classList.remove('ring-2', 'ring-yellow-400');
+            document.getElementById('btn-human').classList.remove('ring-2', 'ring-yellow-400');
+            
+            if(creator === 'BOT') {
+                document.getElementById('btn-bot').classList.add('ring-2', 'ring-yellow-400');
+            } else {
+                document.getElementById('btn-human').classList.add('ring-2', 'ring-yellow-400');
+            }
+            checkReadyToTrigger();
+        }
+
+        function checkReadyToTrigger() {
+            if (selectedAnswer && selectedCreator) {
+                setTimeout(() => {
+                    showModal();
+                }, 400);
+            }
+        }
+
+        function showModal() {
+            const modal = document.getElementById('feedbackModal');
+            const ansText = document.getElementById('answerFeedbackText');
+            const mysteryText = document.getElementById('mysteryFeedbackText');
+
+            if (selectedAnswer === 'B') {
+                ansText.innerText = "✓ JAWABAN SOAL: BENAR! Jupiter berotasi dalam waktu ~9 jam 55 menit.";
+                ansText.className = "text-sm font-bold text-green-400";
+            } else {
+                ansText.innerText = "✗ JAWABAN SOAL: KURANG TEPAT. Jawaban yang benar adalah B. Planet Jupiter.";
+                ansText.className = "text-sm font-bold text-red-400";
+            }
+
+            if (selectedCreator === 'HUMAN') {
+                mysteryText.innerText = "★ MISTERI ORIGIN: TEPAT! Soal ini ditulis oleh Guru (Pak Rahmad, M.Pd). Bonus +500 PTS!";
+                mysteryText.className = "text-sm font-bold text-yellow-300";
+            } else {
+                mysteryText.innerText = "🗙 MISTERI ORIGIN: SALAH TEBAK. Soal ini sebenarnya dibuat oleh Guru, bukan Bot AI.";
+                mysteryText.className = "text-sm font-bold text-pink-400";
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('feedbackModal').classList.add('hidden');
+            selectedAnswer = null;
+            selectedCreator = null;
+            ['A', 'B', 'C', 'D'].forEach(o => {
+                const btn = document.getElementById(`opt-${o}`);
+                btn.classList.remove('bg-cyan-400', 'text-black', 'border-yellow-400');
+            });
+            document.getElementById('btn-bot').classList.remove('ring-2', 'ring-yellow-400');
+            document.getElementById('btn-human').classList.remove('ring-2', 'ring-yellow-400');
+        }
+    </script>
+</body>
+</html>

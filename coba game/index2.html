@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe Cetak Biru: Turing-Edu (80s Neon Arcade)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0b0813;
+            color: #e2e8f0;
+            font-family: 'Share Tech Mono', monospace;
+            background-image: 
+                linear-gradient(rgba(255, 0, 128, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .font-arcade {
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Neon Glow Effects */
+        .neon-border-pink {
+            border: 2px solid #ff007f;
+            box-shadow: 0 0 10px #ff007f, inset 0 0 10px rgba(255, 0, 128, 0.3);
+        }
+
+        .neon-border-cyan {
+            border: 2px solid #00f3ff;
+            box-shadow: 0 0 10px #00f3ff, inset 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        .neon-border-yellow {
+            border: 2px solid #ffe600;
+            box-shadow: 0 0 10px #ffe600, inset 0 0 10px rgba(255, 230, 0, 0.3);
+        }
+
+        .neon-text-pink {
+            color: #ff007f;
+            text-shadow: 0 0 8px rgba(255, 0, 128, 0.8), 0 0 15px rgba(255, 0, 128, 0.5);
+        }
+
+        .neon-text-cyan {
+            color: #00f3ff;
+            text-shadow: 0 0 8px rgba(0, 243, 255, 0.8), 0 0 15px rgba(0, 243, 255, 0.5);
+        }
+
+        .neon-text-yellow {
+            color: #ffe600;
+            text-shadow: 0 0 8px rgba(255, 230, 0, 0.8);
+        }
+
+        /* CRT Scanline Overlay Effect */
+        .crt-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+        .crt-overlay::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%);
+            background-size: 100% 4px;
+            z-index: 20;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0915;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff007f;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
+
+    <!-- HEADER / META INFO -->
+    <header class="w-full max-w-6xl mb-8 border-b-2 border-cyan-500 pb-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+            <span class="bg-pink-600 text-black text-xs font-bold px-2 py-1 uppercase tracking-widest font-arcade">CETAK BIRU TUGAS MANDIRI</span>
+            <h1 class="text-3xl md:text-4xl font-black font-orbitron neon-text-cyan mt-2">TURING-EDU: RETRO ARCADE</h1>
+            <p class="text-xs md:text-sm text-slate-400 mt-1">Konsep Wireframe Game Edukasi Interaktif & Analisis Uji Turing</p>
+        </div>
+        <div class="flex gap-2">
+            <button onclick="switchView('wireframe')" id="btn-wireframe" class="px-4 py-2 bg-pink-600 text-white font-arcade text-xs rounded hover:bg-pink-500 transition shadow-lg border border-pink-300">
+                LAYOUT WIREFRAME
+            </button>
+            <button onclick="switchView('interactive')" id="btn-interactive" class="px-4 py-2 bg-slate-800 text-cyan-400 font-arcade text-xs rounded hover:bg-slate-700 transition border border-cyan-500">
+                SIMULATOR INTERAKTIF
+            </button>
+        </div>
+    </header>
+
+    <!-- TAB 1: ALL-IN-ONE WIREFRAME BOARD -->
+    <main id="wireframe-view" class="w-full max-w-6xl">
+        <div class="mb-6 p-4 bg-slate-900/80 rounded-lg border border-slate-700 text-sm flex justify-between items-center">
+            <span class="text-slate-300">📌 Mode: <strong class="text-cyan-400">Sketsa Cetak Biru Antarmuka UI 4-Panel</strong></span>
+            <span class="text-xs text-pink-400 animate-pulse font-arcade">● SYNTHWAVE_NEON_THEME</span>
+        </div>
+
+        <!-- GRID OF 4 MAIN UI PANELS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- PANEL 1: MENU UTAMA -->
+            <div class="bg-slate-950 p-5 rounded-xl neon-border-pink crt-overlay flex flex-col justify-between min-h-[380px]">
+                <div class="flex justify-between items-center border-b border-pink-500/30 pb-2 mb-3">
+                    <span class="font-arcade text-[10px] text-pink-400">LAYAR 1 // MENU UTAMA</span>
+                    <span class="text-xs text-slate-500">DISPLAY: 1920x1080 CRT</span>
+                </div>
+                
+                <div class="text-center my-auto py-6 bg-slate-900/50 rounded border border-pink-900/40">
+                    <div class="text-xl md:text-2xl font-arcade neon-text-pink mb-1 tracking-wider">TURING</div>
+                    <div class="text-2xl md:text-3xl font-arcade neon-text-cyan tracking-widest">ARCADE</div>
+                    <p class="text-[11px] text-yellow-300 mt-2 font-mono">=== MANUSIA VS MESIN KNOWLEDGE ===</p>
+                    
+                    <div class="mt-6 flex flex-col gap-2 max-w-[200px] mx-auto">
+                        <div class="py-2 px-4 bg-pink-600/30 border border-pink-500 text-pink-200 font-arcade text-[10px] cursor-pointer hover:bg-pink-600/60 transition">
+                            &#9654; START GAME
+                        </div>
+                        <div class="py-2 px-4 bg-slate-800/60 border border-slate-600 text-slate-400 font-arcade text-[10px]">
+                            OPTIONS
+                        </div>
+                        <div class="py-2 px-4 bg-slate-800/60 border border-slate-600 text-slate-400 font-arcade text-[10px]">
+                            HIGH SCORES
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-2">
+                    <span>CREDITS: 99</span>
+                    <span>INSERT COIN TO PLAY</span>
+                </div>
+            </div>
+
+            <!-- PANEL 2: LEVEL PLAY (SOAL EDUKASI) -->
+            <div class="bg-slate-950 p-5 rounded-xl neon-border-cyan crt-overlay flex flex-col justify-between min-h-[380px]">
+                <div>
+                    <div class="flex justify-between items-center border-b border-cyan-500/30 pb-2 mb-3">
+                        <span class="font-arcade text-[10px] text-cyan-400">LAYAR 2 // LEVEL PLAY (SOAL)</span>
+                        <div class="flex gap-4 font-arcade text-[10px]">
+                            <span class="text-yellow-400">SCORE: 0850</span>
+                            <span class="text-pink-500">TIME: 00:45</span>
+                        </div>
+                    </div>
+
+                    <!-- HUD & GAMEPLAY CANVAS MOCKUP -->
+                    <div class="bg-indigo-950/40 p-4 rounded border border-cyan-800 mb-3 relative overflow-hidden">
+                        <div class="text-xs text-slate-400 mb-1 font-mono">MODUL: PENGETAHUAN UMUM & MATEMATIKA</div>
+                        <p class="text-sm md:text-base text-cyan-100 font-semibold leading-relaxed">
+                            "Jika sebuah galaksi spiral membutuhkan $2 \times 10^8$ tahun untuk satu rotasi penuh, berapakah perkiraan sudut rotasi dalam $0,5$ juta tahun?"
+                        </p>
+                    </div>
+
+                    <!-- MULTIPLE CHOICE GRID -->
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="p-2.5 bg-slate-900 border border-cyan-500/50 rounded hover:border-cyan-400 text-cyan-200 flex items-center gap-2">
+                            <span class="px-1.5 py-0.5 bg-cyan-900 text-cyan-300 font-arcade text-[9px]">A</span> 0.9 Derajat
+                        </div>
+                        <div class="p-2.5 bg-cyan-600/30 border border-cyan-400 rounded text-yellow-300 font-bold flex items-center gap-2">
+                            <span class="px-1.5 py-0.5 bg-yellow-500 text-black font-arcade text-[9px]">B</span> 0.9° (Terpilih)
+                        </div>
+                        <div class="p-2.5 bg-slate-900 border border-cyan-500/50 rounded text-cyan-200 flex items-center gap-2">
+                            <span class="px-1.5 py-0.5 bg-cyan-900 text-cyan-300 font-arcade text-[9px]">C</span> 1.8 Derajat
+                        </div>
+                        <div class="p-2.5 bg-slate-900 border border-cyan-500/50 rounded text-cyan-200 flex items-center gap-2">
+                            <span class="px-1.5 py-0.5 bg-cyan-900 text-cyan-300 font-arcade text-[9px]">D</span> 3.6 Derajat
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-[10px] text-slate-500 text-right font-mono mt-2">
+                    TAHAP 1/2: SELESAIKAN JAWABAN UNTUK MEMBUKA FASE MISTERI
+                </div>
+            </div>
+
+            <!-- PANEL 3: FASE TEBAKAN (MISTERI UJI TURING) -->
+            <div class="bg-slate-950 p-5 rounded-xl neon-border-yellow crt-overlay flex flex-col justify-between min-h-[380px]">
+                <div>
+                    <div class="flex justify-between items-center border-b border-yellow-500/30 pb-2 mb-3">
+                        <span class="font-arcade text-[10px] text-yellow-400">LAYAR 3 // FASE TEBAKAN (MISTERI)</span>
+                        <span class="text-xs text-pink-500 font-arcade animate-pulse">? MISTERI TURING ?</span>
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <h3 class="font-orbitron font-bold text-yellow-300 text-sm">SIAPA PENCIPTA SOAL INI?</h3>
+                        <p class="text-[11px] text-slate-400 mt-1">Analisis gaya bahasa, struktur matematika, dan kerumitan soal di atas!</p>
+                    </div>
+
+                    <!-- TWO CARDS FOR GUESSING -->
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <!-- OPTION HUMAN -->
+                        <div class="p-3 bg-slate-900/90 border-2 border-pink-500 rounded-lg text-center cursor-pointer hover:bg-pink-950/30 transition">
+                            <div class="text-2xl mb-1">👨‍🏫</div>
+                            <div class="font-arcade text-[10px] text-pink-400">GURU SUNGGUHAN</div>
+                            <div class="text-[9px] text-slate-400 mt-0.5">(MANUSIA)</div>
+                        </div>
+
+                        <!-- OPTION BOT -->
+                        <div class="p-3 bg-slate-900/90 border-2 border-cyan-500 rounded-lg text-center cursor-pointer hover:bg-cyan-950/30 transition">
+                            <div class="text-2xl mb-1">🤖</div>
+                            <div class="font-arcade text-[10px] text-cyan-400">BOT KOMPUTER</div>
+                            <div class="text-[9px] text-slate-400 mt-0.5">(MESIN / AI)</div>
+                        </div>
+                    </div>
+
+                    <!-- CONFIDENCE LEVEL SLIDER MOCKUP -->
+                    <div class="bg-slate-900 p-2.5 rounded border border-slate-800">
+                        <div class="flex justify-between text-[10px] text-slate-300 mb-1">
+                            <span>SKALA KEYAKINAN TEBAKAN:</span>
+                            <span class="text-yellow-400 font-bold">4 / 5</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden p-0.5 border border-slate-700 flex gap-1">
+                            <div class="bg-yellow-400 h-full w-1/5 rounded"></div>
+                            <div class="bg-yellow-400 h-full w-1/5 rounded"></div>
+                            <div class="bg-yellow-400 h-full w-1/5 rounded"></div>
+                            <div class="bg-yellow-400 h-full w-1/5 rounded"></div>
+                            <div class="bg-slate-700 h-full w-1/5 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3 text-center">
+                    <button class="w-full py-2 bg-yellow-500 text-black font-arcade text-[10px] rounded font-bold hover:bg-yellow-400 transition">
+                        KONFIRMASI TEBAKAN
+                    </button>
+                </div>
+            </div>
+
+            <!-- PANEL 4: FEEDBACK LOOP (HASIL REVELASI) -->
+            <div class="bg-slate-950 p-5 rounded-xl neon-border-pink crt-overlay flex flex-col justify-between min-h-[380px]">
+                <div>
+                    <div class="flex justify-between items-center border-b border-pink-500/30 pb-2 mb-3">
+                        <span class="font-arcade text-[10px] text-pink-400">LAYAR 4 // FEEDBACK LOOP (HASIL)</span>
+                        <span class="text-xs bg-green-900 text-green-300 px-2 py-0.5 rounded font-arcade">TEBAKAN TEPAT!</span>
+                    </div>
+
+                    <!-- RESULT SCORE BADGE -->
+                    <div class="bg-slate-900/90 p-3 rounded-lg border border-pink-500/50 mb-3 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] text-slate-400 block">PENCIPTA SEBENARNYA:</span>
+                            <span class="font-orbitron text-base text-cyan-400 font-bold">🤖 BOT KOMPUTER (LLM)</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] text-slate-400 block">BONUS UJI TURING:</span>
+                            <span class="font-arcade text-sm text-yellow-400">+200 PTS</span>
+                        </div>
+                    </div>
+
+                    <!-- EXPLANATION FEEDBACK BOX -->
+                    <div class="bg-indigo-950/30 p-3 rounded border border-indigo-800/60 text-xs text-slate-300 space-y-2">
+                        <p class="text-cyan-300 font-semibold border-b border-indigo-800 pb-1">🔍 Umpan Balik Indikator Sintaks:</p>
+                        <p class="text-[11px] leading-relaxed">
+                            Soal ini dibuat oleh **Bot Komputer**. Ciri khasnya terletak pada formulasi kalimat standar tanpa variasi konteks narasi lokal, serta penggunaan variabel matematis murni.
+                        </p>
+                        <p class="text-[11px] text-slate-400 italic">
+                            💡 *Tips Analisis:* Guru manusia cenderung menambahkan cerita latar lokal atau humor kontekstual.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-3 flex gap-2">
+                    <button class="flex-1 py-2 bg-pink-600 text-white font-arcade text-[9px] rounded hover:bg-pink-500">
+                        LANJUT SOAL
+                    </button>
+                    <button class="px-3 py-2 bg-slate-800 text-slate-300 font-arcade text-[9px] rounded hover:bg-slate-700">
+                        DETAIL SOAL
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- TAB 2: INTERACTIVE SIMULATOR (PLAYABLE PROTOTYPE) -->
+    <main id="interactive-view" class="w-full max-w-3xl hidden">
+        <div class="bg-slate-950 p-6 rounded-2xl neon-border-cyan crt-overlay relative">
+            
+            <!-- STEP INDICATOR -->
+            <div class="flex justify-between items-center mb-6 pb-3 border-b border-slate-800">
+                <span class="font-arcade text-xs text-cyan-400" id="sim-step-title">FASE 1: MENJAWAB SOAL</span>
+                <div class="flex gap-1" id="step-dots">
+                    <span class="w-3 h-3 rounded-full bg-cyan-400 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-slate-700 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-slate-700 inline-block"></span>
+                </div>
+            </div>
+
+            <!-- SIMULATOR SCREEN CONTENT -->
+            <div id="sim-content">
+                <!-- STEP 1: SOAL -->
+                <div id="sim-step-1" class="space-y-4">
+                    <div class="bg-slate-900 p-4 rounded-lg border border-cyan-500/40">
+                        <span class="text-xs text-pink-400 font-arcade">SOAL NO. 01 // PENGETAHUAN UMUM</span>
+                        <p class="text-base text-slate-100 font-medium mt-2">
+                            "Siapakah ilmuwan pelopor konsep komputasi modern dan pencipta pengujian kecerdasan mesin yang menjadi nama game ini?"
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                        <button onclick="selectAnswer(this, false)" class="sim-ans-btn p-3 bg-slate-900 border border-slate-700 rounded hover:border-cyan-400 text-left transition text-slate-200">
+                            A. Nikola Tesla
+                        </button>
+                        <button onclick="selectAnswer(this, true)" class="sim-ans-btn p-3 bg-slate-900 border border-slate-700 rounded hover:border-cyan-400 text-left transition text-slate-200">
+                            B. Alan Turing
+                        </button>
+                        <button onclick="selectAnswer(this, false)" class="sim-ans-btn p-3 bg-slate-900 border border-slate-700 rounded hover:border-cyan-400 text-left transition text-slate-200">
+                            C. Albert Einstein
+                        </button>
+                        <button onclick="selectAnswer(this, false)" class="sim-ans-btn p-3 bg-slate-900 border border-slate-700 rounded hover:border-cyan-400 text-left transition text-slate-200">
+                            D. Charles Babbage
+                        </button>
+                    </div>
+
+                    <button id="sim-btn-to-step2" disabled onclick="goToSimStep(2)" class="w-full py-3 bg-slate-800 text-slate-500 font-arcade text-xs rounded opacity-50 cursor-not-allowed transition mt-4">
+                        PILIH JAWABAN DAHULU &#9654;
+                    </button>
+                </div>
+
+                <!-- STEP 2: TEBAKAN TURING -->
+                <div id="sim-step-2" class="space-y-5 hidden">
+                    <div class="text-center">
+                        <span class="text-xs text-yellow-400 font-arcade">FASE MISTERI UJI TURING</span>
+                        <h3 class="text-lg font-orbitron font-bold text-slate-100 mt-1">Apakah Soal Tadi Dibuat Oleh Bot AI atau Guru Manusia?</h3>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="selectGuess('HUMAN')" id="guess-human-btn" class="p-5 bg-slate-900 border-2 border-slate-700 rounded-xl hover:border-pink-500 text-center transition">
+                            <div class="text-3xl mb-2">👨‍🏫</div>
+                            <div class="font-arcade text-xs text-pink-400">GURU SUNGGUHAN</div>
+                            <div class="text-[10px] text-slate-400 mt-1">(MANUSIA)</div>
+                        </button>
+
+                        <button onclick="selectGuess('BOT')" id="guess-bot-btn" class="p-5 bg-slate-900 border-2 border-slate-700 rounded-xl hover:border-cyan-500 text-center transition">
+                            <div class="text-3xl mb-2">🤖</div>
+                            <div class="font-arcade text-xs text-cyan-400">BOT KOMPUTER</div>
+                            <div class="text-[10px] text-slate-400 mt-1">(ALGORITMA AI)</div>
+                        </button>
+                    </div>
+
+                    <button id="sim-btn-to-step3" disabled onclick="goToSimStep(3)" class="w-full py-3 bg-slate-800 text-slate-500 font-arcade text-xs rounded opacity-50 cursor-not-allowed transition">
+                        KIRIM TEBAKAN & ANALISIS &#9654;
+                    </button>
+                </div>
+
+                <!-- STEP 3: FEEDBACK -->
+                <div id="sim-step-3" class="space-y-4 hidden">
+                    <div class="text-center py-2">
+                        <div id="sim-result-badge" class="inline-block px-4 py-1.5 rounded-full font-arcade text-xs mb-2">
+                            ---
+                        </div>
+                        <h3 class="text-xl font-orbitron font-bold text-cyan-300">PENCIPTA SEBENARNYA: GURU SUNGGUHAN (MANUSIA)</h3>
+                    </div>
+
+                    <div class="bg-slate-900 p-4 rounded-xl border border-pink-500/40 text-sm space-y-2">
+                        <h4 class="text-pink-400 font-bold font-orbitron text-xs">🔍 PENJELASAN MEKANISME UMPAN BALIK (FEEDBACK):</h4>
+                        <p class="text-slate-300 text-xs leading-relaxed">
+                            Soal ini dirancang oleh seorang **Guru Sejarah IT**. Indikator utamanya adalah susunan kalimat yang mengaitkan nama tokoh dengan narasi apresiatif ("pencipta pengujian kecerdasan mesin yang menjadi nama game ini"), yang menunjukkan sentuhan pedagogis kontekstual khas manusia, bukan sekadar penarik fakta otomatis oleh algoritma bot.
+                        </p>
+                    </div>
+
+                    <button onclick="resetSim()" class="w-full py-3 bg-pink-600 hover:bg-pink-500 text-white font-arcade text-xs rounded transition mt-4">
+                        🔄 COBA SIMULASI LAGI
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SECTION: PENJELASAN MEKANISME UMPAN BALIK (DESKRIPSI TERTULIS) -->
+    <section class="w-full max-w-6xl mt-8 bg-slate-900/90 border border-slate-700 p-6 rounded-xl">
+        <div class="flex items-center gap-2 mb-3">
+            <span class="text-pink-500 text-xl">📝</span>
+            <h2 class="text-lg font-orbitron font-bold text-cyan-300">Penjelasan Mekanisme Umpan Balik (Feedback Mechanism)</h2>
+        </div>
+        <p class="text-sm md:text-base text-slate-300 leading-relaxed text-justify border-l-4 border-pink-500 pl-4 py-1 bg-slate-950/40 rounded-r">
+            Mekanisme umpan balik pada game edukasi <strong>"Turing-Edu"</strong> dirancang secara bertingkat untuk mengintegrasikan evaluasi pemahaman akademis sekaligus pengasahan literasi digital kritis melalui konsep Uji Turing. Setelah pemain menyelesaikan soal akademis dan menebak identitas pembuatnya (Komputer vs. Manusia), sistem memberikan umpan balik ganda berupa konfirmasi kebenaran materi akademis serta analisis stilistika penulisan soal. Feedback ini mengungkap indikator kognitif spesifik—seperti pola sintaks kaku dan formulasi generik khas bot AI, berbanding terbalik dengan variasi struktur kalimat, konteks kearifan lokal, maupun nuansa humor yang mencirikan pemikiran guru manusia. Melalui evaluasi transparan dan sistem penguat skor bonus (<em>confidence multiplier</em>), umpan balik ini tidak hanya memvalidasi materi pembelajaran tetapi juga secara aktif melatih kemampuan analisis metakognitif pemain dalam membedakan hasil karya kecerdasan buatan dan inteligensi manusia.
+        </p>
+    </section>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        let currentGuess = null;
+
+        function switchView(mode) {
+            const wireframeView = document.getElementById('wireframe-view');
+            const interactiveView = document.getElementById('interactive-view');
+            const btnWireframe = document.getElementById('btn-wireframe');
+            const btnInteractive = document.getElementById('btn-interactive');
+
+            if (mode === 'wireframe') {
+                wireframeView.classList.remove('hidden');
+                interactiveView.classList.add('hidden');
+                btnWireframe.className = "px-4 py-2 bg-pink-600 text-white font-arcade text-xs rounded hover:bg-pink-500 transition shadow-lg border border-pink-300";
+                btnInteractive.className = "px-4 py-2 bg-slate-800 text-cyan-400 font-arcade text-xs rounded hover:bg-slate-700 transition border border-cyan-500";
+            } else {
+                wireframeView.classList.add('hidden');
+                interactiveView.classList.remove('hidden');
+                btnInteractive.className = "px-4 py-2 bg-cyan-600 text-black font-arcade text-xs rounded hover:bg-cyan-500 transition shadow-lg border border-cyan-300";
+                btnWireframe.className = "px-4 py-2 bg-slate-800 text-pink-400 font-arcade text-xs rounded hover:bg-slate-700 transition border border-pink-500";
+            }
+        }
+
+        function selectAnswer(btn, isCorrect) {
+            document.querySelectorAll('.sim-ans-btn').forEach(b => {
+                b.classList.remove('border-yellow-400', 'bg-yellow-950/40', 'text-yellow-300');
+                b.classList.add('border-slate-700', 'bg-slate-900', 'text-slate-200');
+            });
+            btn.classList.remove('border-slate-700', 'bg-slate-900', 'text-slate-200');
+            btn.classList.add('border-yellow-400', 'bg-yellow-950/40', 'text-yellow-300');
+
+            const nextBtn = document.getElementById('sim-btn-to-step2');
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'bg-slate-800', 'text-slate-500');
+            nextBtn.classList.add('bg-pink-600', 'text-white', 'hover:bg-pink-500', 'cursor-pointer');
+            nextBtn.innerHTML = 'LANJUT KE TEBAKAN TURING &#9654;';
+        }
+
+        function goToSimStep(step) {
+            document.getElementById('sim-step-1').classList.add('hidden');
+            document.getElementById('sim-step-2').classList.add('hidden');
+            document.getElementById('sim-step-3').classList.add('hidden');
+
+            document.getElementById(`sim-step-${step}`).classList.remove('hidden');
+
+            const title = document.getElementById('sim-step-title');
+            if (step === 2) title.innerText = 'FASE 2: TEBAKAN MISTERI TURING';
+            if (step === 3) title.innerText = 'FASE 3: UMPAN BALIK & ANALISIS';
+        }
+
+        function selectGuess(type) {
+            currentGuess = type;
+            const humanBtn = document.getElementById('guess-human-btn');
+            const botBtn = document.getElementById('guess-bot-btn');
+
+            if (type === 'HUMAN') {
+                humanBtn.className = "p-5 bg-pink-950/60 border-2 border-pink-400 rounded-xl text-center shadow-lg shadow-pink-500/20";
+                botBtn.className = "p-5 bg-slate-900 border-2 border-slate-800 rounded-xl text-center opacity-50";
+            } else {
+                botBtn.className = "p-5 bg-cyan-950/60 border-2 border-cyan-400 rounded-xl text-center shadow-lg shadow-cyan-500/20";
+                humanBtn.className = "p-5 bg-slate-900 border-2 border-slate-800 rounded-xl text-center opacity-50";
+            }
+
+            const nextBtn = document.getElementById('sim-btn-to-step3');
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'bg-slate-800', 'text-slate-500');
+            nextBtn.classList.add('bg-yellow-500', 'text-black', 'hover:bg-yellow-400', 'cursor-pointer', 'font-bold');
+            
+            // Set result badge for step 3
+            const badge = document.getElementById('sim-result-badge');
+            if (type === 'HUMAN') {
+                badge.className = "inline-block px-4 py-1.5 rounded-full font-arcade text-xs mb-2 bg-green-900 text-green-300 border border-green-500";
+                badge.innerText = "TEBAKAN ANDA BENAR! (+200 PTS)";
+            } else {
+                badge.className = "inline-block px-4 py-1.5 rounded-full font-arcade text-xs mb-2 bg-red-900 text-red-300 border border-red-500";
+                badge.innerText = "TEBAKAN KURANG TEPAT! (+0 PTS)";
+            }
+        }
+
+        function resetSim() {
+            currentGuess = null;
+            document.querySelectorAll('.sim-ans-btn').forEach(b => {
+                b.classList.remove('border-yellow-400', 'bg-yellow-950/40', 'text-yellow-300');
+                b.classList.add('border-slate-700', 'bg-slate-900', 'text-slate-200');
+            });
+            const btn2 = document.getElementById('sim-btn-to-step2');
+            btn2.disabled = true;
+            btn2.className = "w-full py-3 bg-slate-800 text-slate-500 font-arcade text-xs rounded opacity-50 cursor-not-allowed transition mt-4";
+            btn2.innerText = "PILIH JAWABAN DAHULU ▶";
+
+            goToSimStep(1);
+        }
+    </script>
+</body>
+</html>
